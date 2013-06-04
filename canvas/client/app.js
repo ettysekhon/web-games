@@ -1,5 +1,5 @@
 var canvas = document.getElementById('target');
-canvas.width = canvas.height = canvas.style.width = canvas.style.height = 500;
+canvas.width = canvas.height = canvas.style.width = canvas.style.height = 600;
 
 var context = canvas.getContext('2d');
 
@@ -38,4 +38,22 @@ context.fillText('foo', 250, 50);
 // text outlined
 context.strokeStyle = 'purple';
 context.lineWidth = 1;
-context.strokeText('foo', 250, 100);
+context.strokeText('more text', 350, 100);
+
+//arc from centre of canvas
+var x = canvas.width / 2;
+var y = canvas.height / 2;
+var radius = 75;
+
+var startAngle = 1 * Math.PI;
+var endAngle = 2 * Math.PI;
+var counterClockwise = false;
+
+context.beginPath();
+context.arc(x, y, radius, startAngle, endAngle, counterClockwise);
+context.lineWidth = 15;
+
+// line color
+context.strokeStyle = 'black';
+context.stroke();
+
