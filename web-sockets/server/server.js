@@ -38,11 +38,12 @@ wsserver.on('connection', function(socket){
     clients.push(me)
 
     socket.on('message', function(data_json){
-        data = JSON.parse(data_json)
+        var data = JSON.parse(data_json)
 
         if (data.name) {
             console.log("client", me.id, " is ", data.name)
             me.name = data.name;
+            broadcast({name: me.name, id:me.id})
         } else if (data.x) {
 
             // send this data to everybody else now
@@ -54,3 +55,5 @@ wsserver.on('connection', function(socket){
         }
     })
 });
+
+//192.168.
